@@ -5,6 +5,8 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
+import java.util.List;
+
 public class JdbcTemplateTest {
     @Test
     public void mainTest(){
@@ -59,5 +61,14 @@ public class JdbcTemplateTest {
         AccountDao accountDao= (AccountDao) applicationContext.getBean("accountDao");
         Account account = accountDao.findAccountById(1);
         System.out.println(account);
+    }
+    @Test
+    public void findAllAccountTest(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        AccountDao accountDao= (AccountDao) applicationContext.getBean("accountDao");
+        List<Account> accounts=accountDao.findAllAccount();
+        for (Account act: accounts){
+            System.out.println(act);
+        }
     }
 }
