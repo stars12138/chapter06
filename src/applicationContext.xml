@@ -14,4 +14,7 @@
         <bean id="accountDao" class="com.itheima.jdbc.AccountDaoImpl">
             <property name="jdbcTemplate" ref="jdbcTemplate"></property>
         </bean>
+        <bean id="userDao" class="com.itheima.user.UserDaoImpl">
+            <property name="jdbcTemplate" ref="jdbcTemplate"></property>
+        </bean>
 </beans>
