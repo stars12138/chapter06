@@ -27,4 +27,19 @@ public class JdbcTemplateTest {
             System.out.println("插入失败");
         }
     }
+    @Test
+    public void updateAccountTest(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        AccountDao accountDao= (AccountDao) applicationContext.getBean("accountDao");
+        Account account=new Account();
+        account.setId(1);
+        account.setUsername("tom");
+        account.setBalance(2000.00);
+        int num=accountDao.updateAccount(account);
+        if (num>0){
+            System.out.println("修改成功1");
+        }else {
+            System.out.println("修改失败2");
+        }
+    }
 }
