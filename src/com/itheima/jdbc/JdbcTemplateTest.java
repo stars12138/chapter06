@@ -42,4 +42,15 @@ public class JdbcTemplateTest {
             System.out.println("修改失败2");
         }
     }
+    @Test
+    public void deleteAccountTest(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        AccountDao accountDao= (AccountDao) applicationContext.getBean("accountDao");
+        int num= accountDao.deleteAccount(1);
+        if (num>0){
+            System.out.println("删除成功1");
+        }else {
+            System.out.println("删除失败2");
+        }
+    }
 }
