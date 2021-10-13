@@ -53,4 +53,11 @@ public class JdbcTemplateTest {
             System.out.println("删除失败2");
         }
     }
+    @Test
+    public void findAccountByIdTest(){
+        ApplicationContext applicationContext=new ClassPathXmlApplicationContext("applicationContext.xml");
+        AccountDao accountDao= (AccountDao) applicationContext.getBean("accountDao");
+        Account account = accountDao.findAccountById(1);
+        System.out.println(account);
+    }
 }
